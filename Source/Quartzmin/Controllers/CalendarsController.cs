@@ -18,8 +18,10 @@ using IActionResult = System.Web.Http.IHttpActionResult;
 
 namespace Quartzmin.Controllers
 {
+    [Route("Quartzmin/[controller]/[action]")]
     public class CalendarsController : PageControllerBase
     {
+        [Route("/Quartzmin/[controller]")]
         [HttpGet]
         public async Task<IActionResult> Index()
         {

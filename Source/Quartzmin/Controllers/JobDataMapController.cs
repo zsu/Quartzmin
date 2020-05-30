@@ -22,6 +22,7 @@ using System.Web.Http.Results;
 
 namespace Quartzmin.Controllers
 {
+    [Route("Quartzmin/[controller]/[action]")]
     public class JobDataMapController : PageControllerBase
     {
         [HttpPost, JsonErrorResponse]

@@ -28,12 +28,22 @@ namespace Quartzmin
                  await next.Invoke();
              } );
 
-       
 #if NETCOREAPP
-            app.UseEndpoints( endpoints =>
+            app.Use(async (context,next) =>
             {
-                endpoints.MapControllerRoute( nameof( Quartzmin ), $"{options.VirtualPathRoot}/{{controller=Scheduler}}/{{action=Index}}" );
-            } );
+                var url = context.Request.Path.Value;
+
+                // Redirect to an external URL
+                if (!string.IsNullOrWhiteSpace(options.VirtualPathRoot) && options.VirtualPathRoot!="/" && options.VirtualPathRoot!=$"/Quartzmin" && url.Contains($"{options.VirtualPathRoot}"))
+                {
+                     context.Request.Path = url.Replace($"{options.VirtualPathRoot}",($"{options.VirtualPathRoot}".StartsWith("/")?"/":"")+$"Quartzmin"+($"{options.VirtualPathRoot}".EndsWith("/")?"/":""));
+                }
+                await next();
+            });
+            //app.UseEndpoints( endpoints =>
+            //{
+            //    endpoints.MapControllerRoute( nameof( Quartzmin ),pattern:$"{options.VirtualPathRoot}/", $"{options.VirtualPathRoot}/{{controller=Scheduler}}/{{action=Index}}" );
+            //} );
 #else
             app.UseMvc( routes =>
             {
