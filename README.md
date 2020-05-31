@@ -4,10 +4,10 @@
 
 ---
 
-[![NuGet](https://img.shields.io/nuget/v/QuartzminFork.svg)](https://www.nuget.org/packages/QuartzminFork)
+[![NuGet](https://img.shields.io/nuget/v/Quartzmin.AspNetCore.svg)](https://www.nuget.org/packages/Quartzmin.AspNetCore)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-QuartzminFork is  fork from Quartzmin!
+Quartzmin.AspNetCore is  fork from Quartzmin!
 
 
 Quartzmin is powerful, easy to use web management tool for Quartz.NET
@@ -39,11 +39,11 @@ Quartzmin was created with **Semantic UI** and **Handlebars.Net** as the templat
 - See recent job history, state and error messages
 
 ## Install
-Quartzmin is available on [nuget.org](https://www.nuget.org/packages/QuartzminFork)
+Quartzmin is available on [nuget.org](https://www.nuget.org/packages/Quartzmin.AspNetCore)
 
-To install QuartzminFork, run the following command in the Package Manager Console
+To install Quartzmin.AspNetCore, run the following command in the Package Manager Console
 ```powershell
-PM> Install-Package QuartzminFork
+PM> Install-Package Quartzmin.AspNetCore
 ```
 ## Minimum requirements
 - .NET Framework 4.5.2 
