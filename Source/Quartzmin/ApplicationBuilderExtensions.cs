@@ -28,30 +28,6 @@ namespace Quartzmin
                  await next.Invoke();
              } );
 
-#if NETCOREAPP
-            app.Use(async (context,next) =>
-            {
-                var url = context.Request.Path.Value;
-
-                // Redirect to an external URL
-                if (!string.IsNullOrWhiteSpace(options.VirtualPathRoot) && options.VirtualPathRoot!="/" && options.VirtualPathRoot!=$"/Quartzmin" && url.Contains($"{options.VirtualPathRoot}"))
-                {
-                     context.Request.Path = url.Replace($"{options.VirtualPathRoot}",($"{options.VirtualPathRoot}".StartsWith("/")?"/":"")+$"Quartzmin"+($"{options.VirtualPathRoot}".EndsWith("/")?"/":""));
-                }
-                await next();
-            });
-            //app.UseEndpoints( endpoints =>
-            //{
-            //    endpoints.MapControllerRoute( nameof( Quartzmin ),pattern:$"{options.VirtualPathRoot}/", $"{options.VirtualPathRoot}/{{controller=Scheduler}}/{{action=Index}}" );
-            //} );
-#else
-            app.UseMvc( routes =>
-            {
-                routes.MapRoute(
-                    name: nameof( Quartzmin ),
-                    template: "{controller=Scheduler}/{action=Index}" );
-            } );
-#endif
         }
 
         private static void UseFileServer( this IApplicationBuilder app, QuartzminOptions options )
@@ -64,7 +40,11 @@ namespace Quartzmin
 
             var fsOptions = new FileServerOptions()
             {
-                RequestPath = new PathString( $"{options.VirtualPathRoot}/Content" ),
+#if NETCOREAPP
+                RequestPath = new PathString("/Quartzmin/Content" ),
+#else
+                RequestPath = new PathString("/Content"),
+#endif
                 EnableDefaultFiles = false,
                 EnableDirectoryBrowsing = false,
                 FileProvider = fs

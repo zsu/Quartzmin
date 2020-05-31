@@ -42,9 +42,9 @@ namespace AspNetCore31
             var scheduler = DemoScheduler.Create().Result;
         
             app.UseStaticFiles();
-            app.UseQuartzmin(new QuartzminOptions() { Scheduler = scheduler, VirtualPathRoot = "/Quartzmin" , UseLocalTime =true, DefaultDateFormat="yyyy-MM-dd", DefaultTimeFormat="HH:mm:ss" });
             app.UseRouting();
             app.UseAuthorization();
+            app.UseQuartzmin(new QuartzminOptions() { Scheduler = scheduler, VirtualPathRoot = "/" , UseLocalTime =true, DefaultDateFormat="yyyy-MM-dd", DefaultTimeFormat="HH:mm:ss" });
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapDefaultControllerRoute();

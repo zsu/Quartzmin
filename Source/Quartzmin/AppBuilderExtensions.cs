@@ -120,7 +120,11 @@ namespace Quartzmin
 
             var fsOoptions = new FileServerOptions()
             {
+#if NETCOREAPP
+                RequestPath = new PathString("/Quartzmin/Content" ),
+#else
                 RequestPath = new PathString("/Content"),
+#endif
                 EnableDefaultFiles = false,
                 FileSystem = fs
             };

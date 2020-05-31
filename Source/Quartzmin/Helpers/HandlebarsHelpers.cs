@@ -73,8 +73,14 @@ namespace Quartzmin.Helpers
             get
             {
                 string url = _services.Options.VirtualPathRoot;
-                if (!url.EndsWith("/"))
+                if (url==null || !url.StartsWith("/"))
+                    url = "/"+url;
+                if (url==null || !url.EndsWith("/"))
                     url += "/";
+                #if NETCOREAPP
+                                url += "Quartzmin/";
+                #else
+                #endif
                 return url;
             }
         }
