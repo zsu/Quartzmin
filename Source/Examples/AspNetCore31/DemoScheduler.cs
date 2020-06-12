@@ -2,6 +2,7 @@
 using Quartz.Impl;
 using Quartz.Impl.Matchers;
 using System;
+using System.Collections.Specialized;
 using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
@@ -12,7 +13,10 @@ namespace Quartzmin
     {
         public static async Task<IScheduler> Create(bool start = true)
         {
-            var scheduler = await StdSchedulerFactory.GetDefaultScheduler();
+            var options = new NameValueCollection();
+            options.Add("quartz.plugin.recentHistory.type", "Quartz.Plugins.RecentHistory.ExecutionHistoryPlugin, Quartz.Plugins.RecentHistory");
+            options.Add("quartz.plugin.recentHistory.storeType", "Quartz.Plugins.RecentHistory.Impl.InProcExecutionHistoryStore, Quartz.Plugins.RecentHistory");
+            var scheduler = await new StdSchedulerFactory(options).GetScheduler();//.GetDefaultScheduler();
 
             {
                 var jobData = new JobDataMap();

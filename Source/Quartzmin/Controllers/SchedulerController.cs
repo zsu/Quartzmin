@@ -24,6 +24,7 @@ namespace Quartzmin.Controllers
     [Route("Quartzmin/[controller]/[action]")]
     public class SchedulerController : PageControllerBase
     {
+        [Route("/Quartzmin")]
         [Route("/Quartzmin/[controller]")]
         [HttpGet]
         public async Task<IActionResult> Index()
