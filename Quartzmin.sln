@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quartz.Plugins.RecentHistor
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{B669A725-70A9-4E80-BAC7-9765A14CAAA4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCore3", "Source\Examples\AspNetCore3\AspNetCore3.csproj", "{3B2A3329-3BBB-4C6B-A42A-07EE565A2EB8}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCore31", "Source\Examples\AspNetCore31\AspNetCore31.csproj", "{99D97A4F-703E-42C6-89D2-5752D9707AA5}"
 EndProject
 Global
@@ -27,10 +25,6 @@ Global
 		{43C177E2-88FB-47CD-ABB3-4A229B969609}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43C177E2-88FB-47CD-ABB3-4A229B969609}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43C177E2-88FB-47CD-ABB3-4A229B969609}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3B2A3329-3BBB-4C6B-A42A-07EE565A2EB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3B2A3329-3BBB-4C6B-A42A-07EE565A2EB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3B2A3329-3BBB-4C6B-A42A-07EE565A2EB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3B2A3329-3BBB-4C6B-A42A-07EE565A2EB8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{99D97A4F-703E-42C6-89D2-5752D9707AA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{99D97A4F-703E-42C6-89D2-5752D9707AA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99D97A4F-703E-42C6-89D2-5752D9707AA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -40,7 +34,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{3B2A3329-3BBB-4C6B-A42A-07EE565A2EB8} = {B669A725-70A9-4E80-BAC7-9765A14CAAA4}
 		{99D97A4F-703E-42C6-89D2-5752D9707AA5} = {B669A725-70A9-4E80-BAC7-9765A14CAAA4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
