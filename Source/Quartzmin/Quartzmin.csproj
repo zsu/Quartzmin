@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>netstandard2.0;netcoreapp3.1;net452</TargetFrameworks>
+		<TargetFrameworks>netstandard2.0;netcoreapp3.1;net6.0</TargetFrameworks>
 		<RestoreProjectStyle>PackageReference</RestoreProjectStyle>
 		<GeneratePackageOnBuild Condition="'$(Configuration)' == 'Release'">true</GeneratePackageOnBuild>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -31,8 +31,9 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(TargetFramework)', '^net\d'))">
-		<DefineConstants>NETFRAMEWORK</DefineConstants>
-		<AssemblySearchPaths>$(AssemblySearchPaths);{GAC}</AssemblySearchPaths>
+		<DefineConstants>NET6</DefineConstants>
+		<!--<DefineConstants>NETFRAMEWORK</DefineConstants>-->
+		<!--<AssemblySearchPaths>$(AssemblySearchPaths);{GAC}</AssemblySearchPaths>-->
 	</PropertyGroup>
 	<PropertyGroup Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(TargetFramework)', '^netstandard\d'))">
 		<DefineConstants>NETSTANDARD</DefineConstants>
@@ -76,7 +77,9 @@
 		<PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="3.1.0" />
 		<PackageReference Include="Microsoft.Extensions.FileProviders.Physical" Version="3.1.0" />
 	</ItemGroup>
-
+	<ItemGroup Condition="$(DefineConstants.Contains('NET6'))">
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
 	<ItemGroup>
 		<None Include="..\..\LICENSE" Pack="true" PackagePath="" />
 		<None Include="Content\Images\logo.png">

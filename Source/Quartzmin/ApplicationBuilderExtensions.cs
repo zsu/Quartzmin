@@ -1,4 +1,4 @@
-﻿#if ( NETSTANDARD || NETCOREAPP )
+﻿#if ( NETSTANDARD || NETCOREAPP || NET6 )
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;

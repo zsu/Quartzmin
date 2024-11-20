@@ -12,7 +12,7 @@ namespace Quartzmin.Controllers
 {
 	#region Target-Specific Directives
 
-#if ( NETSTANDARD || NETCOREAPP )
+#if ( NETSTANDARD || NETCOREAPP || NET6 )
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Primitives;
     using Newtonsoft.Json;

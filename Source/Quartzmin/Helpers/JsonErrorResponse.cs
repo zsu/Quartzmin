@@ -1,7 +1,7 @@
 ﻿
 namespace Quartzmin.Helpers
 {
-#if (NETSTANDARD || NETCOREAPP)
+#if (NETSTANDARD || NETCOREAPP || NET6)
     using Microsoft.AspNetCore.Mvc.Filters;
     using Microsoft.AspNetCore.Mvc;
     using Newtonsoft.Json;

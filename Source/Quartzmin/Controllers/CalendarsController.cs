@@ -7,7 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 #region Target-Specific Directives
-#if ( NETSTANDARD || NETCOREAPP )
+#if ( NETSTANDARD || NETCOREAPP || NET6 )
 using Microsoft.AspNetCore.Mvc;
 #endif
 #if NETFRAMEWORK

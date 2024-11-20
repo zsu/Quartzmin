@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 #region Target-Specific Directives
-#if ( NETSTANDARD || NETCOREAPP )
+#if ( NETSTANDARD || NETCOREAPP || NET6 )
 using HttpRequest = Microsoft.AspNetCore.Http.HttpRequest;
 #endif
 #if NETFRAMEWORK
@@ -57,7 +57,7 @@ namespace Quartzmin.Helpers
             return field.Substring(n + 1);
         }
 
-#if ( NETSTANDARD || NETCOREAPP )
+#if ( NETSTANDARD || NETCOREAPP || NET6 )
 		public static Task<List<KeyValuePair<string, object>>> GetFormData(this HttpRequest request)
         {
             var result = new List<KeyValuePair<string, object>>();
