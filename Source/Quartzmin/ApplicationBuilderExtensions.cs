@@ -57,8 +57,7 @@ namespace Quartzmin
         public static void AddQuartzmin( this IServiceCollection services )
         {
             services.AddControllers()
-                .AddApplicationPart( Assembly.GetExecutingAssembly() )
-                .AddNewtonsoftJson();
+                .AddApplicationPart(Assembly.GetExecutingAssembly());
         }
 #else
         public static void AddQuartzmin( this IServiceCollection services )
