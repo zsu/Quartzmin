@@ -9,16 +9,11 @@ namespace Quartzmin.Helpers
 
     public class JsonErrorResponseAttribute : ActionFilterAttribute
     {
-        private static readonly JsonSerializerSettings _serializerSettings = new JsonSerializerSettings()
-        {
-            ContractResolver = new DefaultContractResolver(), // PascalCase as default
-        };
-
         public override void OnActionExecuted(ActionExecutedContext context)
         {
             if (context.Exception != null)
             {
-                context.Result = new JsonResult(new { ExceptionMessage = context.Exception.Message }, _serializerSettings) { StatusCode = 400 };
+                context.Result = new NewtonsoftJsonResult(new { ExceptionMessage = context.Exception.Message }) { StatusCode = 400 };
                 context.ExceptionHandled = true;
             }
         }
