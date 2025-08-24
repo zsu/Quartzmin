@@ -128,7 +128,7 @@ namespace Quartzmin
                 await Task.Delay(TimeSpan.FromSeconds(Random.Next(1, 20)));
 
                 if (Random.Next(2) == 0)
-                    throw new Exception("Fatal error example!");
+                    throw new Exception($"Fatal error example from job: {context.JobDetail.Key.Group}.{context.JobDetail.Key.Name}");
             }
         }
 
@@ -146,7 +146,7 @@ namespace Quartzmin
                 await Task.Delay(TimeSpan.FromSeconds(Random.Next(1, 5)));
 
                 if (Random.Next(4) == 0)
-                    throw new Exception("Fatal error example!");
+                    throw new Exception($"Fatal error example from job: {context.JobDetail.Key.Group}.{context.JobDetail.Key.Name}");
             }
         }
     }
